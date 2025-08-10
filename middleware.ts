@@ -28,11 +28,13 @@ export function middleware(request: NextRequest) {
 let userRole = null
 if (token) {
   try {
-    const base64Url = token.split('.')[1]
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-      + '='.repeat((4 - base64Url.length % 4) % 4)
-    const jsonPayload = Buffer.from(base64, "base64").toString("utf-8")
-    userRole = JSON.parse(jsonPayload).role
+
+const base64Url = token.split('.')[1]
+const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+  + '='.repeat((4 - base64Url.length % 4) % 4)
+
+const jsonPayload = atob(base64)
+userRole = JSON.parse(jsonPayload).role
   } catch (e) {
     userRole = null
   }
