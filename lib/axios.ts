@@ -2,7 +2,7 @@ import axios from "axios"
 
 // Create axios instance for main API (test platform)
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://13.235.79.13:5000/api",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://13.126.197.193:5000/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -11,7 +11,7 @@ const axiosInstance = axios.create({
 
 // Create axios instance for auth API
 const authApiInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_AUTH_API_URL || "http://13.235.79.13:3000",
+  baseURL: process.env.NEXT_PUBLIC_AUTH_API_URL || "http://13.126.197.193:3000",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
